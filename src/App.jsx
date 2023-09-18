@@ -2,6 +2,7 @@ import Cabecalho from "./components/Cabecalho";
 import Conteudo from "./components/Conteudo";
 import Rodape from "./components/Rodape";
 import viteLogo from "./assets/vite.svg";
+import style from "./App.module.css";
 
 export default function App() {
 
@@ -9,8 +10,8 @@ export default function App() {
 
   return (
     <>
-      <h1>APP - Componente principal!</h1>
-      <div>
+      <h1 className={style.titulo}>APP - Componente principal!</h1>
+      <div className={style.container}>
         {/* Iniciando a área do cabeçalho */}
         <Cabecalho />
 
