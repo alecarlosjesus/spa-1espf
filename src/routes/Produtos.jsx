@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ListaProduto } from "../components/ListaProdutos";
 import style from "./Produtos.module.css";
+import {AiTwotoneEdit as Editar} from "react-icons/ai"
 
 export default function Produtos() {
   document.title = "Lista de Produtos";
@@ -27,7 +28,7 @@ export default function Produtos() {
               <td>{item.nome}</td>
               <td>{item.desc}</td>
               <td>{item.preco}</td>
-              <td><Link to={`/editar/produtos/${item.id}`}>Editar</Link> </td>
+              <td><Link to={`/editar/produtos/${item.id}`}> <Editar/> </Link> </td>
             </tr>
           ))}
         </tbody>
