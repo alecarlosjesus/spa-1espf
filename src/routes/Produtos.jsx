@@ -1,4 +1,5 @@
 import { ListaProduto } from "../components/ListaProdutos";
+import style from "./Produtos.module.css";
 
 export default function Produtos() {
   document.title = "Lista de Produtos";
@@ -7,7 +8,7 @@ export default function Produtos() {
     <div>
       <h1>Produtos</h1>
 
-      <table>
+      <table className={style.tblEstilo}>
         <thead>
           <tr>
             <th>ID</th>
@@ -19,7 +20,7 @@ export default function Produtos() {
 
         <tbody>
           {ListaProduto.map((item, indice) => (
-            <tr key={indice}>
+            <tr key={indice} className={style.lineTbl}>
               <td>{item.id}</td>
               <td>{item.nome}</td>
               <td>{item.desc}</td>
