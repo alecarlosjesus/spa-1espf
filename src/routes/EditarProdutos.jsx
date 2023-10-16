@@ -8,7 +8,10 @@ export default function EditarProdutos() {
     document.title = "Editar Produtos " + id; 
 
     const[produto,setProduto] = useState({
-      
+      id:id,
+      nome:'',
+      desc:'',
+      preco:''
     });
 
     //Criar uma estratégia para recuperar o produto da API-JSON com fetch, utilizando GET:
@@ -27,11 +30,11 @@ export default function EditarProdutos() {
       const {name,value} = e.target;
 
       if(name == "nome"){
-        setProduto({"nome":value,"desc":"","preco":""});
+        setProduto({"nome":value,"desc":produto.desc,"preco":produto.preco});
       }else if(name == "desc"){
-        setProduto({"nome":"","desc":value,"preco":""});
+        setProduto({"nome":produto.nome,"desc":value,"preco":produto.preco});
       }else if(name == "preco"){
-        setProduto({"nome":"","desc":"","preco":value});
+        setProduto({"nome":produto.nome,"desc":produto.desc,"preco":value});
       }
       
     }
