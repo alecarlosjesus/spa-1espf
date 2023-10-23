@@ -17,6 +17,12 @@
       "nome": "Monitor",
       "desc": "32' 75Hz",
       "preco": 2500
+    },
+    {
+      "nome": "Ferro de Passar",
+      "desc": "Ferro",
+      "preco": "1000",
+      "id": 4
     }
   ]
 }
