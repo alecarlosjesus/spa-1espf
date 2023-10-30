@@ -33,7 +33,6 @@ export default function Produtos() {
 
       <button onClick={()=> setOpen(true)}>OPEN-MODAL</button>
 
-
       <table className={style.tblEstilo}>
         <thead>
           <tr>
@@ -59,7 +58,7 @@ export default function Produtos() {
         <tfoot>
           <tr>
             <td colSpan={5}>
-              PRODUTOS INFORMÁTICOS - QTD = {ListaProduto.length}
+              PRODUTOS INFORMÁTICOS - QTD = {listaProdutosApi.length}
             </td>
           </tr>
         </tfoot>
