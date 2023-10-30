@@ -1,15 +1,16 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
+    //Criando o Redirecionador!
+    const navigate = useNavigate();
 
     //USE-STATE QUE VAI ARMAZENAR OS DADOS DO FORM.
     const [usuario,setUsuario] = useState({
         email: "",
         senha: ""
     })
-
-    
 
     //PREENCHIMENTO DO FORM
     const handleChange = (e)=>{
@@ -19,12 +20,44 @@ export default function Login() {
         setUsuario({...usuario,[name]:value});
     }
 
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+
+        let users;
+
+        try {
+            const response = await fetch("http://localhost:5000/usuarios");
+            users = await response.json();
+            
+        } catch (error) {
+            alert("Ocorreu um erro no processamento da sua solicitação!");    
+        }
+
+        //REALIZANDO A VALIDAÇÃO DO USUÁRIO.
+        for (let x = 0; x < users.length; x++) {
+            const user = users[x];
+            //REALIZANDO A COMPARAÇÃO DE FATO!
+            if(user.email == usuario.email && user.senha == usuario.senha){
+                alert("Login realizado com SUCESSO!")
+                //REDIRECIONANDO O USUÁRIO PARA A PÁGINA HOME!
+                navigate("/");
+                return;
+            }
+        }
+
+        alert("Login ou senha incorretos!")
+        setUsuario({
+            email:"",
+            senha:""
+        });
+    }
+
   return (
     <div>
         <h1>Login</h1>
 
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>User Information:</legend>
                     <div>
