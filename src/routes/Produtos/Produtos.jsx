@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { ListaProduto } from "../components/ListaProdutos";
 import style from "./Produtos.module.css";
 import {AiTwotoneEdit as Editar} from "react-icons/ai"
 import { useEffect, useState } from "react";
-import ModalAction from "../components/ModalAction/ModalAction";
+import ModalAction from "../../components/ModalAction/ModalAction";
 
 export default function Produtos() {
   document.title = "Lista de Produtos";
